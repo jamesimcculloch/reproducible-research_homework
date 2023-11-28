@@ -1,6 +1,17 @@
 # Reproducible research: version control and R
 
-\# INSERT ANSWERS HERE #
+Questions 1-3 can be found in my logistic growth repo: https://github.com/jamesimcculloch/logistic_growth
+
+### Question 4
+"A script for simulating a random walk is provided in the question-4-code folder of this repo. Execute the code to produce the paths of two random walks. What do you observe?"
+
+Each graph shows the path of a particle in space (according to its x and y coordinates) over time, with the time denoted by the blue shade of the line. There is limited similarity between the two random walks beyond the fact that they are both highly irregular and that they begin at the coordinates (0,0)! There is no preferential direction of movement of the particle, with it equally likely to move in any direction at any point. The point to which it moves is independent of the direction in which it had travelled to get to the point from which it is moving. The random walk therefore has the potential to take the form of a relative linear movement across space (with short random detours) or a cluster of movement whereby the particle by chance stays in the same region of space. 
+
+"Investigate the term **random seeds**. What is a random seed and how does it work?
+
+A random seed is the starting point for a pseudo-random number generator. While the numbers which follow the original seed (the input value) are random, when the same seed is used again, you will see the same numbers in the output. This allows the simulation of a random process, such as Brownian motion, to be reproducible. In the code in the question-4-code file, the runif() function selects a totally random number within a certain range, which in this case is between 0 and 2π. This produces the angle at which the simulated particle moves at each time point. However, this means that the code is not reproducible, and each time it is executed it will produce a different output. Instead, we could change the code to require a random seed when choosing the (pseudo-)random number for the angle of motion. Then when the same random seed is input, the output random walk will be the same each time that code is executed. You can do this by including the function set.seed() before the "for" loop, including any arbitrarily-chosen number as the argument. In my case, I have chosen the number 22 as my random seed, for no particular reason. Now, as long as I specify set.seed(22) in my function, I will get the same random walk as the output. You can see the edited code in the R file "Brownian_simulation_reproducible.R" in this repo.
+
+
 
 ## Instructions
 
