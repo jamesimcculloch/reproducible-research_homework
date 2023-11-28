@@ -17,6 +17,19 @@ The changes that I made to the "random_walk.R" to make it reproducible can be se
 
 I have also uploaded this image file to the repo, with the file name "random_walk_compare.png"
 
+### Question 5
+
+"Import the data for dsDNA viruses taken from the Supplementary Materials of the original paper into Posit Cloud. How many rows and columns does the table have?"
+
+I can use the following code to find the number of rows and the number of columns of the table:
+
+```{r}
+data <- read.csv("Cui_etal2014.csv")
+nrow(data)
+ncol(data)
+```
+The output was 33 rows and 13 columns. This is not including the header row. If one were to include the header row, one would have to initially specify header = F in the read.csv() function. Including the header, there are 34 rows. 
+
 ## Instructions
 
 The homework for this Computer skills practical is divided into 5 questions for a total of 100 points (plus an optional bonus question worth 10 extra points). First, fork this repo and make sure your fork is made **Public** for marking. Answers should be added to the # INSERT ANSWERS HERE # section above in the **README.md** file of your forked repository.
