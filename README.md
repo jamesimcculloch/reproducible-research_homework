@@ -11,7 +11,11 @@ Each graph shows the path of a particle in space (according to its x and y coord
 
 A random seed is the starting point for a pseudo-random number generator. While the numbers which follow the original seed (the input value) are random, when the same seed is used again, you will see the same numbers in the output. This allows the simulation of a random process, such as Brownian motion, to be reproducible. In the code in the question-4-code file, the runif() function selects a totally random number within a certain range, which in this case is between 0 and 2π. This produces the angle at which the simulated particle moves at each time point. However, this means that the code is not reproducible, and each time it is executed it will produce a different output. Instead, we could change the code to require a random seed when choosing the (pseudo-)random number for the angle of motion. Then when the same random seed is input, the output random walk will be the same each time that code is executed. You can do this by including the function set.seed() before the "for" loop, including any arbitrarily-chosen number as the argument. In my case, I have chosen the number 22 as my random seed, for no particular reason. Now, as long as I specify set.seed(22) in my function, I will get the same random walk as the output. I have edited the random_walk.R file to make it reproducible under the commit message "random_walk.R made reproducible". 
 
+The changes that I made to the "random_walk.R" to make it reproducible can be seen in the below image taken of the compare view of my commit with the parent code:
 
+<img width="1440" alt="random_walk_compare" src="https://github.com/jamesimcculloch/reproducible-research_homework/assets/150149794/b4820a78-9c9b-4e04-84a3-00f118c562fa">
+
+I have also uploaded this image file to the repo, with the file name "random_walk_compare.png"
 
 ## Instructions
 
