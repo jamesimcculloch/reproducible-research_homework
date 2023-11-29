@@ -90,7 +90,7 @@ As can be seen from the coefficients, the slope is 1.5152 (1.52 to 3 significant
 ```{r}
 exp(7.0748)
 ```
-To give 1181.807, our value for β. The p-values for each are 2.28e-10 and 6.44e-10, which are indeed statistically significant. Both 𝛼 and β are the same as given in the dsDNA row of Table 2 in the paper (denoted as the allometric exponent and scaling factor, respectively), which is promising! 
+To give 1181.807, our value for β. The p-values for each are 2.28e-10 (β) and 6.44e-10 (𝛼), which are indeed statistically significant. Both 𝛼 and β are the same as given in the dsDNA row of Table 2 in the paper (denoted as the allometric exponent and scaling factor, respectively), which is promising! 
 
 ## Instructions
 
