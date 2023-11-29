@@ -88,7 +88,7 @@ F-statistic: 77.16 on 1 and 31 DF,  p-value: 6.438e-10
 As can be seen from the coefficients, the slope is 1.5152 (1.52 to 3 significant figures), which denotes 𝛼. β is the intercept, which in the coefficients is given as 7.0748. This can be inverse-logged as so:
 
 ```{r}
-exp(7.0748}
+exp(7.0748)
 ```
 To give 1181.807, our value for β. The p-values for each are 2.28e-10 and 6.44e-10, which are indeed statistically significant. Both 𝛼 and β are the same as given in the dsDNA row of Table 2 in the paper (denoted as the allometric exponent and scaling factor, respectively), which is promising! 
 
