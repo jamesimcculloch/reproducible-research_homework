@@ -30,6 +30,68 @@ ncol(data)
 ```
 The output was 33 rows and 13 columns. This is not including the header row. If one were to include the header row, one would have to initially specify header = F in the read.csv() function. Including the header, there are 34 rows. 
 
+"What transformation can you use to fit a linear model to the data? Apply the transformation."
+
+In order to fit a linear model to the data, the variables need to be normalised. In the paper, this was done by log-transforming both the virion volume and the genome length. I initially checked for normality in the untransformed data using the Shapiro-Wilk test (as n < 50), as below:
+
+```{r}
+shapiro.test(data$Virion.volume..nm.nm.nm.)
+shapiro.test(data$Genome.length..kb.)
+```
+This gave p-values of 4.254e-09 and 1.213e-10 indicating that the distribution of both variables is statistically significantly different from normal. 
+
+I then created new columns with the log-transformed values of the virion volume and genome length columns:
+
+```{r}
+data$log.Virion.volume..nm.nm.nm. <- log(data$Virion.volume..nm.nm.nm.)
+data$log.Genome.length..kb. <- log(data$Genome.length..kb.)
+```
+I then tested these with the Shapiro-Wilk test:
+
+```{r}
+shapiro.test(data$log.Virion.volume..nm.nm.nm.)
+shapiro.test(data$log.Genome.length..kb.)
+```
+
+This gave p-values of 0.0001813 and 0.2731 respectively. This means that the genome length data is now normal (or at least not significantly deviating from normal), but the virion volume data still deviates from normal. Other transformations were tested (reciprocal, squaring, cubing, square-rooting), but none provided a larger p-value. Therefore I kept the log transform and accepted that it might not be possible to better normalise the data given the small sample size. 
+
+"Find the exponent (𝛼) and scaling factor (β) of the allometric law for dsDNA viruses and write the p-values from the model you obtained, are they statistically significant? Compare the values you found to those shown in Table 2 of the paper, did you find the same values?"
+
+I fitted the linear model as so:
+
+```{r}
+model <- lm(log.Virion.volume..nm.nm.nm. ~ log.Genome.length..kb., data = data)
+summary(model)
+```
+This gave the following output:
+
+```{r}
+Call:
+lm(formula = log.Virion.volume..nm.nm.nm. ~ log.Genome.length..kb., 
+    data = data)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-1.8523 -1.2530 -0.1026  1.0739  2.0193 
+
+Coefficients:
+                       Estimate Std. Error t value Pr(>|t|)    
+(Intercept)              7.0748     0.7693   9.196 2.28e-10 ***
+log.Genome.length..kb.   1.5152     0.1725   8.784 6.44e-10 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 1.263 on 31 degrees of freedom
+Multiple R-squared:  0.7134,	Adjusted R-squared:  0.7042 
+F-statistic: 77.16 on 1 and 31 DF,  p-value: 6.438e-10
+```
+As can be seen from the coefficients, the slope is 1.5152 (1.52 to 3 significant figures), which denotes 𝛼. β is the intercept, which in the coefficients is given as 7.0748. This can be inverse-logged as so:
+
+```{r}
+exp(7.0748}
+```
+To give 1181.807, our value for β. The p-values for each are 2.28e-10 and 6.44e-10, which are indeed statistically significant. Both 𝛼 and β are the same as given in the dsDNA row of Table 2 in the paper (denoted as the allometric exponent and scaling factor, respectively), which is promising! 
+
 ## Instructions
 
 The homework for this Computer skills practical is divided into 5 questions for a total of 100 points (plus an optional bonus question worth 10 extra points). First, fork this repo and make sure your fork is made **Public** for marking. Answers should be added to the # INSERT ANSWERS HERE # section above in the **README.md** file of your forked repository.
