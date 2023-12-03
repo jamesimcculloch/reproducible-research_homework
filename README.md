@@ -92,6 +92,26 @@ exp(7.0748)
 ```
 To give 1181.807, our value for β. The p-values for each are 2.28e-10 (β) and 6.44e-10 (𝛼), which are indeed statistically significant. Both 𝛼 and β are the same as given in the dsDNA row of Table 2 in the paper (denoted as the allometric exponent and scaling factor, respectively), which is promising! 
 
+"Write the code to reproduce the figure shown."
+
+I used the following code to reproduce the figure shown in the question booklet:
+
+```{r}
+install.packages("ggplot2")
+library(ggplot2) #ensuring ggplot is loaded
+ggplot(aes(x = log(Genome.length..kb.), y = log(Virion.volume..nm.nm.nm.)), data = data) +
+  xlab("log [Genome length (kb)]") +
+  ylab("log [Virion volume (nm3)]") + #x and y axis labels
+  geom_point() + #adding points to the graph
+  geom_smooth(method = "lm") + #adding the fitted linear model line to the graph
+  theme_light() + #changing the theme to match that of the graph in the booklet
+  theme(axis.title=element_text(face="bold")) #making the axis labels bold
+```
+I wasn't entirely sure on which theme was used in the booklet. I eventually settled on theme_light() as the one that looked most similar to me. But theme_bw() and theme_linedraw() also look similar. I would have applied these in the same way as I did with theme_light(). The size of my points is a little smaller, but this depends on how zoomed in the plot is; I took the screenshot from the 'zoom' view, which makes the points appear smaller relative to the rest of the figure. My reproduced version of the plot is below:
+
+<img width="994" alt="reproduced_figure" src="https://github.com/jamesimcculloch/reproducible-research_homework/assets/150149794/3389f09a-3c4d-4e53-a382-37266de21ea5">
+
+
 ## Instructions
 
 The homework for this Computer skills practical is divided into 5 questions for a total of 100 points (plus an optional bonus question worth 10 extra points). First, fork this repo and make sure your fork is made **Public** for marking. Answers should be added to the # INSERT ANSWERS HERE # section above in the **README.md** file of your forked repository.
