@@ -127,6 +127,26 @@ This gave the following output:
 ```
 Therefore the estimate volume of a 300 kb dsDNA virus is 6698076 nm<sup>3</sup>.
 
+### Bonus question
+
+"Explain the difference between reproducibility and replicability in scientific research. How can git and GitHub be used to enhance the reproducibility and replicability of your work? What limitations do they have?"
+
+Reproducibility and replicability are often confused or conflated. Reproducibility is whether the use of the same data and methods reaches the same results. Replicability is whether studies attempting to address the same question reach the same conclusions, but using different data. 
+
+Git is a software system for version control, tracking changes in code. These changes can be collected in repositories, which can be made available on the website GitHub, alongside the code itself. This allows other scientists to access the code that you have used in a particular scientific investigation. Your data can also be uploaded into a GitHub repository and made publicly available. Git and GitHub can be used to enhance reproducibility because it allows other workers to use your data and code and attempt to produce the same results as in your analysis. 
+
+In terms of replicability, workers in the same field attempting to answer the same question are able to use your code (as accessed via GitHub) to help with their analysis, as it could give inspiration as to how best to fit a certain model, carry out a particular statistical test, visualise the results, _et cetera_. Even the exact same code could be applied to different data, to properly test the validity of your methods and the replicability of your research. 
+
+In addition to these benefits, the version control aspect of git means that methods can continuously be updated to reflect scientific advancements and the development of new computational techniques, packages, and methods generally, but the old versions of codes and methods are still available to test the reproducibility and replicability of investigations carried out prior to these advancements. 
+
+Furthermore, GitHub provides the space for providing more detailed elaboration as to the methods used for a certain paper, as methods sections in papers are often required by the published to be brief. This is particularly true for the highest impact journals, the studies in which are often the most impactful and therefore most in need of being reproducible and replicable. 
+
+The branching and merging features are especially good for collaboration. Branching allows other workers to use and test the same code for reproducibility, and modify it and apply it to different data to test replicability. Merging allows updated methods, reflecting scientific advancements, to be added to a base branch and become the new template for further investigation using the same/similar methods. 
+
+The online repositories are backed up; if the code for a specific investigation were only stored on a single device, which was then compromised, it would be difficult or impossible to test the reproducibility or replicability of that investigation. Hosting of the repositories on the internet means that they can be accessed from any device.
+
+However, there are also limitations to using git and GitHub. The actions on the website are not always intuitive for new users, and therefore uptake of GitHub by new scientists may not be easy. This is even worse when one is using git without the GitHub interface. In addition, the hosting of the repositories online make them vulnerable to security breaches, even when the settings of the repository mean that it is not generally publicly viewable. The online nature of GitHub also necessitates an internet connection, so it may not be possible to use this interface when on fieldwork in a remote location without internet connection. One could use git without the GitHub interface, but this requires more technical understanding.
+
 ## Instructions
 
 The homework for this Computer skills practical is divided into 5 questions for a total of 100 points (plus an optional bonus question worth 10 extra points). First, fork this repo and make sure your fork is made **Public** for marking. Answers should be added to the # INSERT ANSWERS HERE # section above in the **README.md** file of your forked repository.
