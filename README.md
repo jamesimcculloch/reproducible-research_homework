@@ -111,6 +111,21 @@ I wasn't entirely sure on which theme was used in the booklet. I eventually sett
 
 <img width="994" alt="reproduced_figure" src="https://github.com/jamesimcculloch/reproducible-research_homework/assets/150149794/3389f09a-3c4d-4e53-a382-37266de21ea5">
 
+"What is the estimated volume of a 300 kb dsDNA virus?"
+
+The following code was used to predict the virion volume of a 300 kb dsDNA virus:
+
+```{r}
+prediction <- predict(model, data.frame(log.Genome.length..kb. = log(300)))
+exp(prediction)
+```
+This gave the following output:
+
+```{r}
+      1 
+6698076 
+```
+Therefore the estimate volume of a 300 kb dsDNA virus is 6698076 nm<sup>3</sup>.
 
 ## Instructions
 
