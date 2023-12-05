@@ -1,6 +1,6 @@
 # Reproducible research: version control and R
 
-Questions 1-3 can be found in my logistic growth repo: https://github.com/jamesimcculloch/logistic_growth
+Questions 1-3 can be found in my logistic growth repo: https://github.com/bloukraan/logistic_growth
 
 ### Question 4
 "A script for simulating a random walk is provided in the question-4-code folder of this repo. Execute the code to produce the paths of two random walks. What do you observe?"
